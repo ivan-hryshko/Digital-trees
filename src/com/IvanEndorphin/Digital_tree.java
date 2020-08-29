@@ -1,7 +1,6 @@
 package com.IvanEndorphin;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Digital_tree {
 
@@ -19,6 +18,12 @@ public class Digital_tree {
     public static void main(String[] args) throws InterruptedException {
 
         //Создаем поле
+        //Цветное поле
+        PrimitivesAppMy app = new PrimitivesAppMy();
+        app.start();
+        app.makeField();
+
+        //Текстовое
         CreateField();
 
             //Основной действующий цикл
