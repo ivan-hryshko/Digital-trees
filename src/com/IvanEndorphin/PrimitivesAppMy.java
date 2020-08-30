@@ -7,7 +7,7 @@ import java.util.TimerTask;
 import static com.IvanEndorphin.Digital_tree.*;
 
 public class PrimitivesAppMy {
-    public static int FieldWidth = 400;
+    public static int FieldWidth = 700;
     public static int FieldHeight = 300;
 
     private JFrame frame;

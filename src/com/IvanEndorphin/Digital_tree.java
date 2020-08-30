@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Digital_tree {
 
     public static Cell[][] field;
-    public static Rect[][] FieldRect = new Rect[10][11];
+    public static Rect[][] FieldRect = new Rect[10][30];
 
     public static ArrayList <Tree> TreeList = new ArrayList<Tree>();
     public static int Turn = 0;
@@ -36,7 +36,8 @@ public class Digital_tree {
             DoTest("Im here 5 - before new tree");
 
         TreeList.add( new Tree());
-        TreeList.get(0).addFirsCell(9,5);
+        TreeList.get(0).addFirsCell(9,10);
+        TreeList.get(0).addFirsCell(9,20);
 
         app.repaint();
 
