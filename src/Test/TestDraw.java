@@ -10,7 +10,9 @@ public class TestDraw {
     public static void main(String[] args) {
         PrimitivesAppMy app = new PrimitivesAppMy();
         app.start();
-        app.makeField();
+        app.makeField2();
+
+
 
     }
 }

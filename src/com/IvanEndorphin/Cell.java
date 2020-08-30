@@ -16,29 +16,38 @@ public class Cell {
     int CellBirthday;
     private boolean genomeWasDone = false;
     private boolean CellFall = false;
+    Rect CellRect;
+
 
 
 
     public Cell(int y, int x, int g) {
-        System.out.println("Cell inside");
+        DoTest("Cell inside");
 
         this.ParentTree = TreeList.get(TreeList.size()-1);
-        System.out.println("Parrent wass added");
+        DoTest("Parrent wass added");
 
-        System.out.println("Cell coordianate");
+        DoTest("Cell coordianate");
 
 
         this.x_Cell_posion = x;
         this.y_Cell_posion = y;
-        System.out.println("Cell coordianate end");
+        DoTest("Cell coordianate end");
 
         this.CellID = ParentTree.CellCount;
         this.ParentTree.IncreaseCellCount();
 
+
+        DoTest("ID & Parent Tree");
+
         this.GenomeValue = g;
         this.CellBirthday=Turn;
 
+        DoTest("before change color");
 
+
+        FieldRect[y][x].changeColorYellow();
+        app.repaint();
 
     }
 
@@ -59,12 +68,16 @@ public class Cell {
         this.CellID = ParentTree.CellCount;
         this.ParentTree.CellCount++;
 
-
-
         this.GenomeValue = genome;
         this.CellBirthday=Turn;
 
+        FieldRect[y][x].changeColorYellow();
+
+
         wasSomeGrowth=true;
+
+
+        app.repaint();
 
 
     }
@@ -76,12 +89,16 @@ public class Cell {
 
     void CreateSeed(int parent_y, int parent_x,int newY, int newX, int genome){
         //Создать новую клетку списке в клеток дерева.
-        this.ParentTree.CellList.add(new Cell(newY,newX,field[parent_y][parent_x],genome));
+        Cell cell = new Cell(newY,newX,field[parent_y][parent_x],genome);
+        this.ParentTree.CellList.add(cell);
 
         //При
-        field[newY][newX]=this.ParentTree.CellList.get(this.ParentTree.CellList.size()-1);
+        FieldRect[newY][newX].setCell(cell);
 
-        field[parent_y][parent_x].makegenomeWasDoneTrue();
+        FieldRect[parent_y][parent_x].RectCell.makegenomeWasDoneTrue();
+        FieldRect[parent_y][parent_x].changeColorGreen();
+        app.repaint();
+
 
 
     }

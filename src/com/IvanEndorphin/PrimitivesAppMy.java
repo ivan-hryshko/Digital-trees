@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import static com.IvanEndorphin.Digital_tree.*;
 
 public class PrimitivesAppMy {
     public static int FieldWidth = 400;
@@ -68,14 +69,32 @@ public class PrimitivesAppMy {
     }
 
     public void makeField(){
-        for (int i = 20; i < 240; i=i+20) {
-            for (int j = 20; j < 240; j+=20) {
-                drawerPanel.addRectangle(j,i,Color.GRAY);
+        for (int j = 0, ycord = 20; j < FieldRect.length ; j++, ycord+=20) {
+                 for (int i = 0, xcord = 20; i < FieldRect[0].length ; i++,xcord+=20) {
 
-            }
+            drawerPanel.addRectangle(ycord, xcord, Color.GRAY, i, j);
+
         }
 
+        }
+
+
+        drawerPanel.repaint();
+
     }
+      public void makeField2(){
+
+
+          drawerPanel.addRectangle(20, 20, Color.GRAY, 0, 0);
+          drawerPanel.addRectangle(20, 40, Color.GRAY, 1, 0);
+
+
+
+
+          drawerPanel.repaint();
+
+    }
+
 
     private void startTimer() {
         TimerTask task = new TimerTask() {
@@ -89,5 +108,11 @@ public class PrimitivesAppMy {
 
         Timer timer = new Timer();
         timer.schedule(task, 0, 10);
+    }
+
+
+    void repaint(){
+        drawerPanel.repaint();
+
     }
 }

@@ -1,10 +1,8 @@
 package com.IvanEndorphin;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static com.IvanEndorphin.Digital_tree.TreeList;
-import static com.IvanEndorphin.Digital_tree.field;
+import static com.IvanEndorphin.Digital_tree.FieldRect;
 
 /**
  * Created by IvanEndorphin on 24.08.2020.
@@ -14,7 +12,7 @@ public class Tree {
 
     int [][] TreeGenome=new int[16][4];
     int CellCount=0;
-    int starnGenomeNumber =0;
+    int startGenomeNumber =0;
     int age;
     boolean alive = true;
 
@@ -84,11 +82,12 @@ public class Tree {
 
 
     void addFirsCell(int y, int x){
-
-        CellList.add(new Cell(y,x,starnGenomeNumber));
+        Cell cell = new Cell(y,x, startGenomeNumber);
+        CellList.add(cell);
         System.out.println("Cell was created");
 
-        field[y][x] = CellList.get(0);
+
+        FieldRect[y][x].setCell(cell);
 
         System.out.println("Im here 2 - cell with coo=ordinate");
 

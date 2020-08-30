@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public class Digital_tree {
 
     public static Cell[][] field;
+    public static Rect[][] FieldRect = new Rect[10][11];
+
     public static ArrayList <Tree> TreeList = new ArrayList<Tree>();
     public static int Turn = 0;
     public static boolean wasSomeGrowth=false;
     public static int MaxTreeAge = 10;
-    public static boolean DoTest = false;
+    public static boolean DoTest = true;
     public static int TurnMaximum = 20;
+    public static PrimitivesAppMy app = new PrimitivesAppMy();
+
 
 
 
@@ -19,8 +23,8 @@ public class Digital_tree {
 
         //Создаем поле
         //Цветное поле
-        PrimitivesAppMy app = new PrimitivesAppMy();
         app.start();
+        //Заполняем массив прямоугольниками
         app.makeField();
 
         //Текстовое
@@ -29,10 +33,12 @@ public class Digital_tree {
             //Основной действующий цикл
             //while (true) {
                 //Начальная позиция первого семени
-            System.out.println("Im here 5 - before new tree");
+            DoTest("Im here 5 - before new tree");
 
         TreeList.add( new Tree());
-        TreeList.get(0).addFirsCell(7,5);
+        TreeList.get(0).addFirsCell(9,5);
+
+        app.repaint();
 
 
         while (true){
@@ -235,10 +241,12 @@ public class Digital_tree {
 
         static void growth(){
 
-                for (int i = field.length-1; i >=0; i--) {
-                    for (int j = 0; j < field[0].length ; j++) {
+                //Проходимся по по полю слева-направо,сниузу-вверх
 
-                        checkSquare(i,j);
+                for (int j = FieldRect.length-1; j >=0; j--) {
+                    for (int i = 0; i < FieldRect[0].length ; i++) {
+
+                        checkSquare(j,i);
                 }
             }
                 makeOlderTree();
@@ -274,12 +282,20 @@ public class Digital_tree {
     }
 
     static void checkSquare(int y, int x) {
+        DoTest("CheckSquare_Y"+y+"_Х_"+x);
+
+
         int newY = y + 1;
-        if (field[y][x] == null) {
+        if (FieldRect[y][x].isAnyCell() == false) {
+            DoTest("isAnyCell = false");
+
 
         }
         //опускаем вниз падающие семена
-        else if (field[y][x].isCellFall() == true) {
+        else if (FieldRect[y][x].RectCell.isCellFall() == true) {
+
+            DoTest("isCellFall = true");
+
             //Если возле земли создать
             //Если коснулось препятсвия уничтожить
             //больше не падает
@@ -299,10 +315,11 @@ public class Digital_tree {
 
             }
         }
-        else if (field[y][x].CellBirthday < Turn && field[y][x].isCellFall() == false) {
+        else if (FieldRect[y][x].RectCell.CellBirthday < Turn && FieldRect[y][x].RectCell.isCellFall() == false) {
                 //Если появиась не в этом ходу, выполнить геном
                 doGenome(y, x);
             }
+
 
         }
 
@@ -315,14 +332,15 @@ public class Digital_tree {
     }
 
     private static void doGenome(int y, int x) {
+        DoTest("Do Genome");
 
-        DoTest("GrowthLeft");
+
         //Поочередно выполняем 4 числа генома
         //Передаем координаты клетки и ряд с ее геномом
-        growth_Left(y,x, field[y][x].ParentTree.TreeGenome[field[y][x].getGenomeValue()][0]);
-        growth_Up(y,x, field[y][x].ParentTree.TreeGenome[field[y][x].getGenomeValue()][1]);
-        growth_Right(y,x, field[y][x].ParentTree.TreeGenome[field[y][x].getGenomeValue()][2]);
-        growth_Down(y,x, field[y][x].ParentTree.TreeGenome[field[y][x].getGenomeValue()][3]);
+        growth_Left(y,x, FieldRect[y][x].RectCell.ParentTree.TreeGenome[FieldRect[y][x].RectCell.getGenomeValue()][0]);
+        growth_Up(y,x, FieldRect[y][x].RectCell.ParentTree.TreeGenome[FieldRect[y][x].RectCell.getGenomeValue()][1]);
+        growth_Right(y,x, FieldRect[y][x].RectCell.ParentTree.TreeGenome[FieldRect[y][x].RectCell.getGenomeValue()][2]);
+        growth_Down(y,x, FieldRect[y][x].RectCell.ParentTree.TreeGenome[FieldRect[y][x].RectCell.getGenomeValue()][3]);
 
     }
 
@@ -331,8 +349,10 @@ public class Digital_tree {
     private static void growth_Left(int y, int x, int g) {
         if (g<16) {
             if (x - 1 >= 0){
-                if ((field[y][x - 1] == null)||(field[y][x-1].isCellFall()==true)){
-                    field[y][x].CreateSeed(y, x,y,x-1, g);
+                if ((FieldRect[y][x - 1].isAnyCell() == false)||(FieldRect[y][x-1].RectCell.isCellFall()==true)){
+                    FieldRect[y][x].RectCell.CreateSeed(y, x,y,x-1, g);
+                    DoTest("GrowthLeft");
+
 
 
                 }
@@ -345,8 +365,10 @@ public class Digital_tree {
     private static void growth_Up(int y, int x, int g) {
         if (g<16) {
             if (y - 1 >= 0){
-                if ((field[y-1][x] == null)||(field[y-1][x].isCellFall()==true)){
-                    field[y][x].CreateSeed(y, x,y-1,x, g);
+                if ((FieldRect[y-1][x].isAnyCell() == false)||(FieldRect[y-1][x].RectCell.isCellFall()==true)){
+                    FieldRect[y][x].RectCell.CreateSeed(y, x,y-1,x, g);
+                    DoTest("Growth Up");
+
 
                 }
             }
@@ -355,8 +377,10 @@ public class Digital_tree {
     private static void growth_Right(int y, int x, int g) {
         if (g<16) {
             if (x + 1 <field[0].length){
-                if ((field[y][x + 1] == null)||(x + 1 <field[0].length &&field[y][x+1].isCellFall()==true)){
-                    field[y][x].CreateSeed(y, x,y,x+1, g);
+                if ((FieldRect[y][x + 1].isAnyCell() == false)||(x + 1 <FieldRect[0].length &&FieldRect[y][x+1].RectCell.isCellFall()==true)){
+                    FieldRect[y][x].RectCell.CreateSeed(y, x,y,x+1, g);
+                    DoTest("Growth Right");
+
 
                 }
             }
@@ -367,6 +391,8 @@ public class Digital_tree {
             if (y + 1 <field.length){
                 if ((field[y+1][x] == null)||(y + 1 <field.length &&field[y+1][x].isCellFall()==true)){
                     field[y][x].CreateSeed(y, x,y+1,x, g);
+                    DoTest("Growth Down");
+
 
                 }
             }

@@ -5,6 +5,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.IvanEndorphin.Digital_tree.FieldRect;
+
+
 public class DrawerPanel extends JPanel {
     ArrayList<Shape> shapes = new ArrayList<Shape>();
     public boolean animating = false;
@@ -23,14 +26,19 @@ public class DrawerPanel extends JPanel {
         rect.randomFill();
         shapes.add(rect);
     }
-    public void addRectangle(int y,int x,Color color) {
+
+
+    public void addRectangle(int y,int x,Color color,int i, int j) {
         Rect rect = new Rect();
-        rect.x = y;
-        rect.y = x;
+        rect.x = x;
+        rect.y = y;
+        rect.i = i;
+        rect.j = j;
         rect.width = 18;
         rect.height = 18;
         rect.color = color;
         shapes.add(rect);
+        FieldRect[j][i]=rect;
     }
 
 
@@ -53,10 +61,11 @@ public class DrawerPanel extends JPanel {
 }
 
 class Shape {
-    public int x, y;
+    public int x, y,i,j;
     public int width, height;
     public int speed = +2;
     public Color color = Color.RED;
+    public Cell RectCell;
 
     public int randint(int min, int max) {
         Random rnd = new Random();
@@ -79,6 +88,39 @@ class Shape {
 
     public void draw(Graphics g) {
     }
+
+    public void setCell(Cell cell){
+        this.RectCell = cell;
+        this.color = Color.YELLOW;
+
+
+    }
+
+    boolean isAnyCell(){
+        if(RectCell==null){
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+
+
+    public void changeColor(Color color) {
+        this.color = color;
+
+    }
+
+    public void changeColorGreen() {
+
+        this.color = Color.GREEN;
+    }
+
+    public void changeColorYellow() {
+        this.color = Color.YELLOW;
+
+    }
 }
 
 
@@ -87,6 +129,11 @@ class Rect extends Shape {
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillRect(x, y, width, height);
+    }
+
+    public void changeColor(Color green) {
+
+        this.color = green;
     }
 }
 
