@@ -58,6 +58,7 @@ public class Digital_tree {
 
 
             wasSomeGrowth=false;
+            app.repaint();
 
             try {
                 Thread.sleep(500);
@@ -269,11 +270,13 @@ public class Digital_tree {
             //Если семя не отросток то у далить его с поля
         for (int i = 0; i < tree.CellList.size(); i++) {
             if (tree.CellList.get(i).isGenomeWasDone()==true){
-                field[tree.CellList.get(i).getY_Cell_posion()][tree.CellList.get(i).x_Cell_posion]=null;
+                FieldRect[tree.CellList.get(i).getY_Cell_posion()][tree.CellList.get(i).x_Cell_posion].setCellNull();
+                FieldRect[tree.CellList.get(i).getY_Cell_posion()][tree.CellList.get(i).x_Cell_posion].changeColorGrey();
 
             }
             else if (tree.CellList.get(i).isGenomeWasDone()==false){
                 tree.CellList.get(i).setCellFallTrue();
+                FieldRect[tree.CellList.get(i).getY_Cell_posion()][tree.CellList.get(i).x_Cell_posion].changeColorBlue();
             }
         }
         tree.alive=false;
@@ -302,16 +305,18 @@ public class Digital_tree {
             //Создать новое дерево
             //Геном потом рандомизировтаь
 
-            if (newY < field.length && field[newY][x] == null) {
+            if (newY < FieldRect.length && FieldRect[newY][x].isAnyCell()==false) {
                 //field[newY][x]=field[y][x].ParentTree.CellList.get(field[y][x].CellID);
-                field[newY][x] = field[y][x];
-                field[y][x] = null;
-                field[newY][x].y_Cell_posionPlus();
-            } else if (newY < field.length && field[newY][x] != null) {
-                field[y][x] = null;
+                FieldRect[newY][x].RectCell = FieldRect[y][x].RectCell;
+                FieldRect[newY][x].changeColorBlue();
+                FieldRect[y][x].KilCell();
+
+                FieldRect[newY][x].RectCell.y_Cell_posionPlus();
+            } else if (newY < FieldRect.length && FieldRect[newY][x].isAnyCell()==true) {
+                FieldRect[y][x].KilCell();
 
             } else {
-                CreateNewTree(field[y][x]);
+                CreateNewTree(FieldRect[y][x].RectCell);
 
             }
         }
@@ -376,7 +381,7 @@ public class Digital_tree {
     }
     private static void growth_Right(int y, int x, int g) {
         if (g<16) {
-            if (x + 1 <field[0].length){
+            if (x + 1 <FieldRect[0].length){
                 if ((FieldRect[y][x + 1].isAnyCell() == false)||(x + 1 <FieldRect[0].length &&FieldRect[y][x+1].RectCell.isCellFall()==true)){
                     FieldRect[y][x].RectCell.CreateSeed(y, x,y,x+1, g);
                     DoTest("Growth Right");
@@ -388,9 +393,9 @@ public class Digital_tree {
     }
     private static void growth_Down(int y, int x, int g) {
         if (g<16) {
-            if (y + 1 <field.length){
-                if ((field[y+1][x] == null)||(y + 1 <field.length &&field[y+1][x].isCellFall()==true)){
-                    field[y][x].CreateSeed(y, x,y+1,x, g);
+            if (y + 1 <FieldRect.length){
+                if ((FieldRect[y+1][x].isAnyCell() == false)||(y + 1 <FieldRect.length &&FieldRect[y+1][x].RectCell.isCellFall()==true)){
+                    FieldRect[y][x].RectCell.CreateSeed(y, x,y+1,x, g);
                     DoTest("Growth Down");
 
 

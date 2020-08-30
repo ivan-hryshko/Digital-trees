@@ -107,6 +107,13 @@ class Shape {
     }
 
 
+    public void KilCell(){
+        this.RectCell=null;
+        this.color = Color.GRAY;
+
+    }
+
+
     public void changeColor(Color color) {
         this.color = color;
 
@@ -120,6 +127,26 @@ class Shape {
     public void changeColorYellow() {
         this.color = Color.YELLOW;
 
+    }
+
+    public void changeColorGrey() {
+        this.color = Color.GRAY;
+
+    }
+    public void changeColorBlue() {
+        this.color = Color.BLUE;
+
+    }
+
+
+    public void setCellNull(){
+        this.RectCell=null;
+    }
+
+    public void moveDown20() {
+
+        this.y+=20;
+        this.j++;
     }
 }
 

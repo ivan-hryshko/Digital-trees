@@ -89,8 +89,8 @@ public class Cell {
 
     void CreateSeed(int parent_y, int parent_x,int newY, int newX, int genome){
         //Создать новую клетку списке в клеток дерева.
-        Cell cell = new Cell(newY,newX,field[parent_y][parent_x],genome);
-        this.ParentTree.CellList.add(cell);
+        Cell cell = new Cell(newY,newX,FieldRect[parent_y][parent_x].RectCell,genome);
+        cell.ParentTree.CellList.add(cell);
 
         //При
         FieldRect[newY][newX].setCell(cell);
@@ -123,6 +123,7 @@ public class Cell {
 
     void setCellFallFalse(){
         this.CellFall = false;
+        FieldRect[y_Cell_posion][x_Cell_posion].changeColorYellow();
     }
 
     boolean isCellFall(){
