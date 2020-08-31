@@ -11,7 +11,7 @@ public class Digital_tree {
     public static int Turn = 0;
     public static boolean wasSomeGrowth=false;
     public static int MaxTreeAge = 10;
-    public static boolean DoTest = true;
+    public static boolean DoTest = false;
     public static int TurnMaximum = 20;
     public static PrimitivesAppMy app = new PrimitivesAppMy();
 
@@ -36,27 +36,26 @@ public class Digital_tree {
             DoTest("Im here 5 - before new tree");
 
         TreeList.add( new Tree());
-        TreeList.get(0).addFirsCell(9,10);
-        TreeList.get(0).addFirsCell(9,20);
+        TreeList.get(0).addFirsCell(9,15);
 
         app.repaint();
+
+        TreeList.get(0).soutGenomeVertical();
+
 
 
         while (true){
 
             growth();
 
-            soutField();
-
+            //soutField();
 
             Turn++;
             //exitIfTurnCome();
 
            // exitIfNoGrowth();
            // endTest();
-            soutTreeList();
-
-
+            soutAnotation();
 
             wasSomeGrowth=false;
             app.repaint();
@@ -68,26 +67,34 @@ public class Digital_tree {
             }
 
 
-
-
         }
 
 
         }
+
+    private static void soutAnotation() {
+        System.out.println("Turn: "+Turn);
+       // System.out.println("Tree Genome: "+Turn);
+
+        TreeList.get(0).soutGenome();
+
+        System.out.println();
+
+        soutTreeList();
+
+    }
 
     private static void soutTreeList() {
 
-
-
         for (int i = 0; i <TreeList.size(); i++) {
 
-
             if (TreeList.get(i).alive==true){
-                System.out.println(i+"_"+TreeList.get(i).age);
+                System.out.println("Tree №"+i+"   Age:"+TreeList.get(i).age+"   CellCount:"+TreeList.get(i).CellList.size());
 
             }
 
         }
+        System.out.println();
     }
 
     private static void exitIfTurnCome() {
@@ -228,11 +235,7 @@ public class Digital_tree {
 
             }
 
-            System.out.println("Turn: "+Turn);
 
-            TreeList.get(0).soutGenome();
-
-            System.out.println();
 
 
 

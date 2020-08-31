@@ -2,6 +2,7 @@ package com.IvanEndorphin;
 
 import java.util.ArrayList;
 
+import static com.IvanEndorphin.Digital_tree.DoTest;
 import static com.IvanEndorphin.Digital_tree.FieldRect;
 
 /**
@@ -18,11 +19,11 @@ public class Tree {
 
 
     public Tree(){
-        System.out.println("Before new Genome");
+        DoTest("Before new Genome");
 
         GenerateGenome();
 
-        System.out.println("Im here - genome was created");
+        DoTest("Im here - genome was created");
 
 
     }
@@ -42,7 +43,7 @@ public class Tree {
 
     void GenerateGenome() {
 
-        System.out.println("Genome create star method");
+        DoTest("Genome create star method");
 
         //Make First line genome possible to Growth
         int counter=(int) (Math.random()*16);
@@ -79,19 +80,32 @@ public class Tree {
 
         }
     }
+       public void soutGenomeVertical(){
+           System.out.println("Tree genome");
+           System.out.println();
+
+        for (int i = 0; i < TreeGenome.length; i++) {
+            System.out.print(i+" - \" ");
+
+            System.out.println("Gen №:"+i+"  Left:"+TreeGenome[i][0]+"   Up:"+TreeGenome[i][1]+"   Right:"+TreeGenome[i][2]+"   Down:"+TreeGenome[i][3]);
+
+
+        }
+    }
+
 
 
     void addFirsCell(int y, int x){
         Cell cell = new Cell(y,x, startGenomeNumber);
         CellList.add(cell);
-        System.out.println("Cell was created");
+        DoTest("Cell was created");
 
 
         FieldRect[y][x].setCell(cell);
 
-        System.out.println("Im here 2 - cell with coo=ordinate");
+        DoTest("Im here 2 - cell with coo=ordinate");
 
-        System.out.println("Im here 3 - Field X");
+        DoTest("Im here 3 - Field X");
 
 
     }
