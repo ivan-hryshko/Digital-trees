@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a74b8c0f-bd04-4904-a711-93d4fec8a738" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Digital trees/Test/TestSome2.class" afterPath="$PROJECT_DIR$/out/production/Digital trees/Test/TestSome2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Digital trees/com/IvanEndorphin/Digital_tree.class" afterPath="$PROJECT_DIR$/out/production/Digital trees/com/IvanEndorphin/Digital_tree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Digital trees/com/IvanEndorphin/Tree.class" afterPath="$PROJECT_DIR$/out/production/Digital trees/com/IvanEndorphin/Tree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Test/TestSome2.java" afterPath="$PROJECT_DIR$/src/Test/TestSome2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java" afterPath="$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/IvanEndorphin/Digital_tree.java" afterPath="$PROJECT_DIR$/src/com/IvanEndorphin/Digital_tree.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java" afterPath="$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java" />
     </list>
@@ -27,11 +23,13 @@
       <file leaf-file-name="Digital_tree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Digital_tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+            <state relative-caret-position="260">
+              <caret line="392" column="13" lean-forward="true" selection-start-line="392" selection-start-column="13" selection-end-line="392" selection-end-column="13" />
               <folding>
                 <element signature="e#237#243#0" expanded="true" />
-                <element signature="e#2358#2366#0" expanded="true" />
+                <element signature="method#endTest#0;class#Digital_tree#0" expanded="false" />
+                <element signature="e#2061#2069#0" expanded="true" />
+                <element signature="method#exitIfNoGrowth#0;class#Digital_tree#0" expanded="false" />
                 <element signature="method#soutField#0;class#Digital_tree#0" expanded="false" />
               </folding>
             </state>
@@ -51,8 +49,8 @@
       <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state relative-caret-position="263">
+              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -61,8 +59,8 @@
       <file leaf-file-name="Cell.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="125" column="68" lean-forward="false" selection-start-line="125" selection-start-column="68" selection-end-line="125" selection-end-column="68" />
+            <state relative-caret-position="-782">
+              <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -71,7 +69,7 @@
       <file leaf-file-name="PrimitivesAppMy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/PrimitivesAppMy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="-544">
               <caret line="10" column="37" lean-forward="false" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -125,14 +123,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/IvanEndorphin/PrimitivesApp.java" />
         <option value="$PROJECT_DIR$/src/Test/TestDraw.java" />
-        <option value="$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java" />
         <option value="$PROJECT_DIR$/src/com/IvanEndorphin/DrawerPanel.java" />
         <option value="$PROJECT_DIR$/src/Test/TestSome.java" />
         <option value="$PROJECT_DIR$/src/Test/SystemFrameSearch.java" />
         <option value="$PROJECT_DIR$/src/Test/TestSome2.java" />
-        <option value="$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java" />
         <option value="$PROJECT_DIR$/src/com/IvanEndorphin/PrimitivesAppMy.java" />
         <option value="$PROJECT_DIR$/src/com/IvanEndorphin/Digital_tree.java" />
+        <option value="$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java" />
+        <option value="$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java" />
       </list>
     </option>
   </component>
@@ -661,7 +659,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#237#243#0" expanded="true" />
-            <element signature="e#2358#2366#0" expanded="true" />
+            <element signature="method#endTest#0;class#Digital_tree#0" expanded="false" />
+            <element signature="e#2061#2069#0" expanded="true" />
+            <element signature="method#exitIfNoGrowth#0;class#Digital_tree#0" expanded="false" />
             <element signature="method#soutField#0;class#Digital_tree#0" expanded="false" />
           </folding>
         </state>
@@ -755,7 +755,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#237#243#0" expanded="true" />
-            <element signature="e#2358#2366#0" expanded="true" />
+            <element signature="method#endTest#0;class#Digital_tree#0" expanded="false" />
+            <element signature="e#2061#2069#0" expanded="true" />
+            <element signature="method#exitIfNoGrowth#0;class#Digital_tree#0" expanded="false" />
             <element signature="method#soutField#0;class#Digital_tree#0" expanded="false" />
           </folding>
         </state>
@@ -820,7 +822,9 @@
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="e#237#243#0" expanded="true" />
-            <element signature="e#2358#2366#0" expanded="true" />
+            <element signature="method#endTest#0;class#Digital_tree#0" expanded="false" />
+            <element signature="e#2061#2069#0" expanded="true" />
+            <element signature="method#exitIfNoGrowth#0;class#Digital_tree#0" expanded="false" />
             <element signature="method#soutField#0;class#Digital_tree#0" expanded="false" />
           </folding>
         </state>
@@ -938,25 +942,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="125" column="68" lean-forward="false" selection-start-line="125" selection-start-column="68" selection-end-line="125" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/PrimitivesAppMy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="-544">
           <caret line="10" column="37" lean-forward="false" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -964,13 +952,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-782">
+          <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/IvanEndorphin/Digital_tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="57" column="28" lean-forward="true" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+        <state relative-caret-position="260">
+          <caret line="392" column="13" lean-forward="true" selection-start-line="392" selection-start-column="13" selection-end-line="392" selection-end-column="13" />
           <folding>
             <element signature="e#237#243#0" expanded="true" />
-            <element signature="e#2358#2366#0" expanded="true" />
+            <element signature="method#endTest#0;class#Digital_tree#0" expanded="false" />
+            <element signature="e#2061#2069#0" expanded="true" />
+            <element signature="method#exitIfNoGrowth#0;class#Digital_tree#0" expanded="false" />
             <element signature="method#soutField#0;class#Digital_tree#0" expanded="false" />
           </folding>
         </state>

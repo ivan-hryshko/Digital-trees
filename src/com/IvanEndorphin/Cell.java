@@ -20,7 +20,7 @@ public class Cell {
 
 
 
-
+    //Для первой созданной клетки
     public Cell(int y, int x, int g) {
         DoTest("Cell inside");
 
@@ -51,7 +51,7 @@ public class Cell {
 
     }
 
-
+    //Для всех последующих клеток
     public Cell(int y, int x, Cell ParentCell, int genome) {
         DoTest("Second Cell start");
 

@@ -17,7 +17,7 @@ public class Tree {
     int age;
     boolean alive = true;
 
-
+    //Для первой созданной семечки
     public Tree(){
         DoTest("Before new Genome");
 
@@ -27,6 +27,8 @@ public class Tree {
 
 
     }
+
+    //Для всех последующих клеток
     public Tree(Cell cell){
         cell.setCellFallFalse();
         this.TreeGenome = cell.ParentTree.TreeGenome;

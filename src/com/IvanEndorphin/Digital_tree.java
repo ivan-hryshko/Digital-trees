@@ -21,25 +21,22 @@ public class Digital_tree {
 
     public static void main(String[] args) throws InterruptedException {
 
-        //Создаем поле
-        //Цветное поле
+
         app.start();
-        //Заполняем массив прямоугольниками
+        //Заполняем массив поля прямоугольниками
         app.makeField();
 
-        //Текстовое
-        CreateField();
 
-            //Основной действующий цикл
-            //while (true) {
-                //Начальная позиция первого семени
-            DoTest("Im here 5 - before new tree");
+        //Начальная позиция первой семечки
+        DoTest("Im here 5 - before new tree");
 
+        //Лист со всеми будущими деревьми
         TreeList.add( new Tree());
         TreeList.get(0).addFirsCell(9,15);
 
         app.repaint();
 
+        //Вывод генома в консоль
         TreeList.get(0).soutGenomeVertical();
 
 
@@ -48,13 +45,8 @@ public class Digital_tree {
 
             growth();
 
-            //soutField();
-
             Turn++;
-            //exitIfTurnCome();
 
-           // exitIfNoGrowth();
-           // endTest();
             soutAnotation();
 
             wasSomeGrowth=false;
@@ -66,17 +58,14 @@ public class Digital_tree {
                 e.printStackTrace();
             }
 
+        }
 
         }
 
 
-        }
 
     private static void soutAnotation() {
         System.out.println("Turn: "+Turn);
-       // System.out.println("Tree Genome: "+Turn);
-
-        TreeList.get(0).soutGenome();
 
         System.out.println();
 
@@ -132,8 +121,6 @@ public class Digital_tree {
                     sout.add(String.valueOf(field[i][j].isGenomeWasDone()));
                     sout.add(" CellFall_");
                     sout.add(String.valueOf(field[i][j].isCellFall()));
-
-
 
 
                     for (int k = 0; k < sout.size(); k++) {
@@ -246,7 +233,7 @@ public class Digital_tree {
 
         static void growth(){
 
-                //Проходимся по по полю слева-направо,сниузу-вверх
+                //Проходимся по по полю слева-направо,снизу-вверх
 
                 for (int j = FieldRect.length-1; j >=0; j--) {
                     for (int i = 0; i < FieldRect[0].length ; i++) {
@@ -254,6 +241,7 @@ public class Digital_tree {
                         checkSquare(j,i);
                 }
             }
+
                 makeOlderTree();
         }
 
@@ -293,21 +281,20 @@ public class Digital_tree {
 
 
         int newY = y + 1;
+
+        //Если в ячейке поля нет клетки пропускаем
         if (FieldRect[y][x].isAnyCell() == false) {
             DoTest("isAnyCell = false");
 
 
         }
-        //опускаем вниз падающие семена
+
+        //опускаем вниз если семечка падающее
         else if (FieldRect[y][x].RectCell.isCellFall() == true) {
 
             DoTest("isCellFall = true");
 
-            //Если возле земли создать
-            //Если коснулось препятсвия уничтожить
-            //больше не падает
-            //Создать новое дерево
-            //Геном потом рандомизировтаь
+            //Если снизу падающей семечки ничего нет опускаем ее
 
             if (newY < FieldRect.length && FieldRect[newY][x].isAnyCell()==false) {
                 //field[newY][x]=field[y][x].ParentTree.CellList.get(field[y][x].CellID);
@@ -316,14 +303,25 @@ public class Digital_tree {
                 FieldRect[y][x].KilCell();
 
                 FieldRect[newY][x].RectCell.y_Cell_posionPlus();
-            } else if (newY < FieldRect.length && FieldRect[newY][x].isAnyCell()==true) {
+
+            }
+            //По скольку проход делаем слева-напрво, снизу-вверх.
+            //То нижняя семечка должна была сдвинуться вниз
+            //Соответсвенно она либо коснулась земли либо там дерево
+            //По этому в таких случаях уничтожаем семечку
+            else if (newY < FieldRect.length && FieldRect[newY][x].isAnyCell()==true) {
                 FieldRect[y][x].KilCell();
 
-            } else {
+            }
+            //Остается только случай когда мемечка уже на полу
+            //По этому создаем дерево
+            else {
                 CreateNewTree(FieldRect[y][x].RectCell);
 
             }
         }
+
+        //Если семечка создана не в этом ходу, то выполняем геном, то есть рост.
         else if (FieldRect[y][x].RectCell.CellBirthday < Turn && FieldRect[y][x].RectCell.isCellFall() == false) {
                 //Если появиась не в этом ходу, выполнить геном
                 doGenome(y, x);
